@@ -1,4 +1,8 @@
 User-agent: *
-Allow: /
+Allow: /#home
+       /tiles.html
+       /plumbing.html
+       /cp-fittings.html
+       /sanitaryware.html
 
 Sitemap: https://prabhattradersbgm.github.io/pt-website/sitemap.xml
