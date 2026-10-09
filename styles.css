@@ -1040,13 +1040,13 @@ h1, h2, h3, h4, h5 {
 .catalog-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  gap: 28px;
 }
 
 .catalog-card {
   overflow: hidden;
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--panel);
   border: 1px solid var(--line);
   box-shadow: 0 18px 36px rgba(24, 19, 15, 0.05);
   transition: transform 0.22s ease, box-shadow 0.22s ease;
@@ -1064,7 +1064,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .catalog-card .product-body {
-  padding: 22px 20px 26px;
+  padding: clamp(28px, 3vw, 38px);
 }
 
 .catalog-link {
@@ -1120,6 +1120,10 @@ h1, h2, h3, h4, h5 {
   .catalog-grid,
   .category-grid {
     grid-template-columns: 1fr;
+  }
+
+  .catalog-card .product-body {
+    padding: 26px 22px 30px;
   }
 
   .category-meta,
@@ -1209,6 +1213,59 @@ h1, h2, h3, h4, h5 {
   }
 
   .product-detail-info {
+    padding: 28px 24px 30px;
+  }
+}
+
+.category-page .catalog-grid:not(.product-options) {
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+.category-page .catalog-grid:not(.product-options) .catalog-link {
+  height: auto;
+}
+
+.category-page .catalog-grid:not(.product-options) .catalog-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  height: 440px;
+}
+
+.category-page .catalog-grid:not(.product-options) .catalog-card img {
+  height: 100%;
+  min-height: 340px;
+}
+
+.category-page .catalog-grid:not(.product-options) .catalog-card .product-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(28px, 5vw, 58px);
+}
+
+.plumbing-page .catalog-grid:not(.product-options) .catalog-card .product-body {
+  gap: 18px;
+}
+
+.plumbing-page .catalog-grid:not(.product-options) .catalog-card .product-body h4 {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .category-page .catalog-grid:not(.product-options) .catalog-card {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .category-page .catalog-grid:not(.product-options) .catalog-card img {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .category-page .catalog-grid:not(.product-options) .catalog-card .product-body {
     padding: 28px 24px 30px;
   }
 }
